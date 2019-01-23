@@ -1,0 +1,16 @@
+{
+  "name": "cardapp-api-gateway-molecular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moleculer": "^0.13.5",
+    "moleculer-web": "^0.8.5"
+  }
+}

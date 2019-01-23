@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "cardapp-api-gateway-molecular"
+		},
+		{
+			"path": "cardapp-address-molecular"
+		}
+	],
+	"settings": {}
+}
