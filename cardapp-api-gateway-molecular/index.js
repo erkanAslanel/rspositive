@@ -31,6 +31,6 @@ name:"api-gateway",
 
 broker.start()
     .then(() => broker.waitForServices("address"))
-    .then(() => broker.call("address.createAddress", { a: 5, b: 3 }))
-    .then(res => console.log("5 + 3 =", res))
+    .then(() => broker.call("address.createAddress"))
+    .then(res => console.log(res))
     .catch(err => console.error(`Error occured! ${err.message}`));
