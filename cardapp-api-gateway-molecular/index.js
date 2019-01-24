@@ -24,10 +24,14 @@ broker.createService({
     name: "api-gateway",
     settings: {
         routes: [{
+            path: "/api/address", 
+            mappingPolicy: "restrict",
             aliases: {
-
-                "GET test": "address.createAddress"
-            }
+                "POST create": "address.createAddress"
+            },
+            onAfterCall(ctx, route, req, res, data) {
+                res.setHeader("X-Custom-Header", "123456");
+            },
         }]
     }
 });

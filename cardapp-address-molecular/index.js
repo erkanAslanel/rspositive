@@ -1,5 +1,7 @@
 const { ServiceBroker } = require("moleculer");
 const ApiService = require("moleculer-web");
+const addressService = require("./service/addressService");
+const { MoleculerError } = require("moleculer").Errors;
 
 let transporter = process.env.TRANSPORTER || "TCP";
 
@@ -11,7 +13,7 @@ const broker = new ServiceBroker({
         options: {
             udpDiscovery: false,
             urls: [
-                "127.0.0.1:6000/node-1", 
+                "127.0.0.1:6000/node-1",
             ],
         }
     }
@@ -24,13 +26,34 @@ broker.createService({
         port: 3001
     },
     actions: {
-        createAddress(ctx) {
-            return "addressCreated";
+
+
+        createAddress: {
+            params: {
+                userId: "string",
+                addressName: "string",
+                addressDetail: "string"
+
+            },
+            handler(ctx) {
+
+                var command = ctx.params;
+
+                addressService.createAddress(command, function (err, resp) {
+ 
+                    if (err) {
+                        throw new MoleculerError("Something happened", 501, "ERR_SOMETHING");
+                    }
+ 
+                    return;
+
+                })
+            }
         }
     }
 });
 
- 
+
 
 broker.start();
 
