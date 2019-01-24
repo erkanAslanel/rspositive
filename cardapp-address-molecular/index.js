@@ -6,7 +6,15 @@ let transporter = process.env.TRANSPORTER || "TCP";
 const broker = new ServiceBroker({
     nodeID: "node-1",
     logger: true,
-    transporter
+    transporter: {
+        type: "TCP",
+        options: {
+            udpDiscovery: false,
+            urls: [
+                "127.0.0.1:6000/node-1", 
+            ],
+        }
+    }
 });
 
 broker.createService({

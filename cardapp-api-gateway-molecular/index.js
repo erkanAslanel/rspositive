@@ -1,33 +1,37 @@
 const { ServiceBroker } = require("moleculer");
 const ApiService = require("moleculer-web");
- 
+
 let transporter = process.env.TRANSPORTER || "TCP";
 
 const broker = new ServiceBroker({
     nodeID: "node-2",
     logger: true,
-    transporter,
-});
- 
+    transporter: {
+        type: "TCP",
+        options: {
+            udpDiscovery: false,
+            urls: [
+                "127.0.0.1:6000/node-1",
 
- 
+            ],
+        }
+    }
+});
+
 
 broker.createService({
     mixins: [ApiService],
-name:"api-gateway",
+    name: "api-gateway",
     settings: {
         routes: [{
             aliases: {
-                
+
                 "GET test": "address.createAddress"
             }
         }]
     }
 });
- 
- 
 
- 
 
 broker.start()
     .then(() => broker.waitForServices("address"))
