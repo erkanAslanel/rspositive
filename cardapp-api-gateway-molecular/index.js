@@ -28,17 +28,11 @@ broker.createService({
             mappingPolicy: "restrict",
             aliases: {
                 "POST create": "address.createAddress"
-            },
-            onAfterCall(ctx, route, req, res, data) {
-                res.setHeader("X-Custom-Header", "123456");
-            },
+            } 
         }]
     }
 });
 
 
-broker.start()
-    .then(() => broker.waitForServices("address"))
-    .then(() => broker.call("address.createAddress"))
-    .then(res => console.log(res))
-    .catch(err => console.error(`Error occured! ${err.message}`));
+broker.start();
+  
