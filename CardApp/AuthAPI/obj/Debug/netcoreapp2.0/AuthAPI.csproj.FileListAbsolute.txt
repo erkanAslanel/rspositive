@@ -9,3 +9,14 @@
 /Users/erkanaslanel/Projects/AuthAPI/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.AssemblyInfo.cs
 /Users/erkanaslanel/Projects/AuthAPI/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.dll
 /Users/erkanaslanel/Projects/AuthAPI/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.pdb
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/bin/Debug/netcoreapp2.0/AuthAPI.deps.json
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/bin/Debug/netcoreapp2.0/AuthAPI.runtimeconfig.json
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/bin/Debug/netcoreapp2.0/AuthAPI.runtimeconfig.dev.json
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/bin/Debug/netcoreapp2.0/AuthAPI.dll
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/bin/Debug/netcoreapp2.0/AuthAPI.pdb
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.csprojAssemblyReference.cache
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.csproj.CoreCompileInputs.cache
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.AssemblyInfoInputs.cache
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.AssemblyInfo.cs
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.dll
+/Users/erkanaslanel/Projects/CardApp/AuthAPI/obj/Debug/netcoreapp2.0/AuthAPI.pdb

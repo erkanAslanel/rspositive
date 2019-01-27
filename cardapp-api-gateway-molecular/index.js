@@ -11,8 +11,7 @@ const broker = new ServiceBroker({
         options: {
             udpDiscovery: false,
             urls: [
-                "127.0.0.1:6000/node-1",
-
+                "127.0.0.1:6001/node-1", 
             ],
         }
     }
@@ -24,7 +23,7 @@ broker.createService({
     name: "api-gateway",
     settings: {
         routes: [{
-            path: "/api/address", 
+            path: "/api/address",
             mappingPolicy: "restrict",
             aliases: {
                 "POST create": "address.createAddress"
@@ -35,4 +34,3 @@ broker.createService({
 
 
 broker.start();
-  

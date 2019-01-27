@@ -11,16 +11,16 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AuthAPI
 {
-    internal class SimpleAuthorizationServerProvider : OpenIdConnectServerProvider
+    internal class CustomAuthorizationServerProvider : OpenIdConnectServerProvider
     {
-        public static ConcurrentDictionary<string,string> refreshTokenList = new ConcurrentDictionary<string,string>();
+        public static ConcurrentDictionary<string, string> refreshTokenList = new ConcurrentDictionary<string, string>();
 
 
         public override Task ValidateTokenRequest(ValidateTokenRequestContext context)
         {
 
             var isPasswordGrantType = context.Request.IsPasswordGrantType();
-             
+
             if (isPasswordGrantType)
             {
 
@@ -62,8 +62,6 @@ namespace AuthAPI
             AuthenticationTicket ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), new AuthenticationProperties(), OpenIdConnectServerDefaults.AuthenticationScheme);
             ICollection<string> scopesToAdd = new List<string>()
             {
-                /* If  you've chosen to add an OpenId token to your destinations, be sure to include the OpenIdCOnnectConstants.Scopes.OpenId in this list */
-                //OpenIdConnectConstants.Scopes.OpenId, // Lets our requesting clients know that an OpenId Token was generated with the original request.
             };
 
             scopesToAdd.Add(OpenIdConnectConstants.Scopes.OfflineAccess);
@@ -79,13 +77,13 @@ namespace AuthAPI
 
             if (passwordGrandType)
             {
-                refreshTokenList.AddOrUpdate(context.Response.RefreshToken,context.Request.ClientId,(string oldToken,string oldClientId)=> oldClientId);
+                refreshTokenList.AddOrUpdate(context.Response.RefreshToken, context.Request.ClientId, (string oldToken, string oldClientId) => oldClientId);
             }
 
             return Task.FromResult<object>(null);
         }
 
 
-       
+
     }
 }

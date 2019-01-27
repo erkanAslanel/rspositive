@@ -13,8 +13,9 @@ const broker = new ServiceBroker({
         options: {
             udpDiscovery: false,
             urls: [
-                "127.0.0.1:6000/node-1",
+                
             ],
+            port:6001
         }
     }
 });
@@ -28,7 +29,7 @@ broker.createService({
     actions: {
 
 
-        createAddress: {
+        createAddress: { 
             params: {
                 userId: "string",
                 addressName: "string",
@@ -39,15 +40,22 @@ broker.createService({
 
                 var command = ctx.params;
 
-                addressService.createAddress(command, function (err, resp) {
- 
-                    if (err) {
-                        throw new MoleculerError("Something happened", 501, "ERR_SOMETHING");
-                    }
- 
-                    return;
+                return new Promise(function (resolve, reject) {
 
+                    addressService.createAddress(command, function (err, resp) {
+
+                        if (err) {
+                            throw new MoleculerError("Something happened", 501, "ERR_SOMETHING");
+                        }
+
+                      
+                        ctx.meta.$statusCode=201;
+                        return resolve("created_2");
+
+                    })
                 })
+
+
             }
         }
     }
